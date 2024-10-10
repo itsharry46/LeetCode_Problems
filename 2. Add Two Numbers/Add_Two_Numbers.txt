@@ -1,0 +1,46 @@
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- TITLE -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+2. Add Two Numbers - Level Medium
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- QUESTION -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit.
+Add the two numbers and return the sum as a linked list. You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+
+Example 1:
+Input: l1 = [2,4,3], l2 = [5,6,4]
+Output: [7,0,8]
+Explanation: 342 + 465 = 807
+
+Example 2:
+Input: l1 = [0], l2 = [0]
+Output: [0]
+
+Example 3:
+Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+Output: [8,9,9,9,0,0,0,1]
+
+
+Constraints:
+1) The number of nodes in each linked list is in the range [1, 100].
+2) 0 <= Node.val <= 9
+3) It is guaranteed that the list represents a number that does not have leading zeros.
+
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- EXPLANATION -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+* In input we will be receiving two 'LinkedList' which is named as 'l1' and 'l2'
+* The digits which are present in 'LinkedList' are present in reversed order ( This will be easier for us to proceed further and solve the problem )
+* Each 'LinkedList' Node will only contain single digit number
+* We need to perform addition between the 'LinkedList' and return in the 'LinkedList Object'
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- SOLUTION -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+* To solve this problem we will require a 'New ListNode Object' and while loop
+* Create a new ListNode object ( This object will act as result which we will return at the end )
+* We would require a variable name 'carry' this will be used to store the carry numbers which we use in normal addition
+    - Carry such as '8 + 8 = 16'. So 1 is carry here.
+* We will run a while loop until 'l1', 'l2' and 'carry' is 'NULL' (None)
+    - If l1 is NULL that means no more elements is present in the Node
+    - If l2 is NULL that means no more elements is present in the Node
+    - If carry is NULL that means no carry. (This needs to be kept to handle corner case scenario like '8 + 8 = 16'. To add 1 into the ListNode)
+* Do the normal addition
+* To get the 'carry' => addition floor 10
+* To get the 'value' (unit place) => addition modules 10
+* Add the 'value' into the ListNode
+* Update the pointers
