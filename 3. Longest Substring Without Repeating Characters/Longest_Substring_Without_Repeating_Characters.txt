@@ -1,0 +1,42 @@
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- TITLE -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+3. Longest Substring Without Repeating Characters - Level Medium
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- QUESTION -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Given a string s, find the length of the longest substring without repeating characters.
+
+
+Example 1:
+Input: s = "abcabcbb"
+Output: 3
+Explanation: The answer is "abc", with the length of 3.
+
+Example 2:
+Input: s = "bbbbb"
+Output: 1
+Explanation: The answer is "b", with the length of 1.
+
+Example 3:
+Input: s = "pwwkew"
+Output: 3
+Explanation: The answer is "wke", with the length of 3. Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
+
+
+Constraints:
+1) 0 <= s.length <= 5 * 104
+2) s consists of English letters, digits, symbols and spaces.
+
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- EXPLANATION -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+* In input we will be getting string named 's' and need to return the substring length
+* The substring must not have repeating characters
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- SOLUTION -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+* To solve this problem we will require a dictionary 'visited_elements', 'i' and 'j' for indexing purpose and lastly 'result'
+* Firstly need to execute a for loop in the range length of string
+* 'i' and 'j' will be present at initial index which is 0.
+* Validate whether the elements are already visited or not ( Check in 'visited_elements' )
+    - 'j' will be used for iteration purpose as we proceed further with string elements
+    - If the string element is present in 'visited_elements'
+        - Then recalculate the value of 'i' by finding the max value between 'index of element in string' and 'index of i'
+    - Update the 'visited_elements' with the latest index
+    - For each for loop update the 'result' value by finding the max value between 'result' and 'index of j - index of i + 1'
+* Return 'result'
